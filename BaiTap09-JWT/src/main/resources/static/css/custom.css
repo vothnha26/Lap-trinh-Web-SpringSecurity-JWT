@@ -1,0 +1,135 @@
+/* Custom CSS for JWT Authentication System */
+
+/* Smooth transitions for all elements */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+/* Custom focus styles */
+.form-control:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Button hover effects */
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Loading animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.loading {
+    animation: pulse 1.5s infinite;
+}
+
+/* Profile image hover effect */
+.profile-avatar img {
+    transition: all 0.3s ease;
+}
+
+.profile-avatar img:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Alert animations */
+.alert {
+    animation: slideInDown 0.5s ease;
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Card hover effects */
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Info item hover effects */
+.info-item:hover {
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 10px;
+    transform: translateX(5px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .login-card, .profile-card {
+        margin: 1rem;
+        padding: 2rem;
+    }
+    
+    .profile-avatar img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .info-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .login-card, .profile-card {
+        background: rgba(30, 30, 30, 0.95);
+        color: #fff;
+    }
+    
+    .profile-info {
+        background: rgba(50, 50, 50, 0.5);
+    }
+    
+    .form-control {
+        background: rgba(50, 50, 50, 0.5);
+        border-color: #555;
+        color: #fff;
+    }
+    
+    .form-control:focus {
+        background: rgba(50, 50, 50, 0.7);
+        border-color: #667eea;
+        color: #fff;
+    }
+}
