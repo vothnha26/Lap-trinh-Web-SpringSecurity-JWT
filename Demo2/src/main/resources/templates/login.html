@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập | Demo 2</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f4f4f4; }
+        .login-container { background: white; padding: 20px 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        h1 { text-align: center; color: #333; }
+        .error-message { color: red; text-align: center; margin-bottom: 10px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], input[type="password"] { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Đăng nhập hệ thống</h1>
+        
+        <div th:if="${param.error}" class="error-message">
+            Sai tên đăng nhập hoặc mật khẩu! Vui lòng thử lại.
+        </div>
+        
+        <form th:action="@{/login}" method="post">
+            
+            <p>
+                <label for="username">Tên đăng nhập:</label>
+                <input type="text" id="username" name="username" required>
+            </p>
+            <p>
+                <label for="password">Mật khẩu:</label>
+                <input type="password" id="password" name="password" required>
+            </p>
+            <p>
+                <button type="submit">Đăng nhập</button>
+            </p>
+        </form>
+        
+        <p style="text-align: center;"><a href="/home">Về Trang chủ công khai</a></p>
+        <p style="text-align: center; font-size: small;">
+            User test: admin/123 (ROLE_ADMIN) | user/123 (ROLE_USER)
+        </p>
+    </div>
+</body>
+</html>

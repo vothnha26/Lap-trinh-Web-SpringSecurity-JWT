@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Hồ Sơ | Demo 2</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .admin-box { border: 1px solid #dc3545; padding: 10px; background-color: #f8d7da; color: #721c24; margin-top: 20px; }
+        .nav a { margin-right: 15px; text-decoration: none; color: #007bff; }
+    </style>
+</head>
+<body>
+    <h1>Trang Hồ Sơ Người Dùng (Cần Xác thực)</h1>
+    
+    <h2>Thông tin người dùng:</h2>
+    <p>Tên đăng nhập: <strong><span sec:authentication="name">Tên người dùng</span></strong></p>
+    <p>Quyền hạn (Roles): <strong><span sec:authentication="principal.authorities">Quyền</span></strong></p>
+
+    <div sec:authorize="hasRole('ADMIN')" class="admin-box">
+        <h3>Tính năng dành cho Quản trị viên</h3>
+        <p>Bạn có quyền **ROLE_ADMIN** để thực hiện các thao tác quản trị.</p>
+        <p>Kiểm tra API yêu cầu ADMIN: <a href="/users/all">Xem danh sách Users (API)</a></p>
+    </div>
+
+    <div sec:authorize="hasRole('USER')">
+        <p>Bạn có quyền **ROLE_USER**.</p>
+    </div>
+    
+    <div class="nav" style="margin-top: 20px;">
+        <a href="/home">Về Trang chủ</a>
+        <a href="/logout">Đăng xuất</a>
+    </div>
+</body>
+</html>
